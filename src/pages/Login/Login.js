@@ -24,8 +24,8 @@ export default function Login() {
           <h5>Crypotverse gives you access to the best projects out there with amazing analysis</h5>
         </div>
         <div className="col-md-4">
-          <div class="card p-3 shadow mb-5 bg-body rounded-3">
-            <div class="card-body">
+          <div className="card p-3 shadow mb-5 bg-body rounded-3">
+            <div className="card-body">
               <form onSubmit={handleSubmit}>
                 {/* <h2 className="mb-3">Login</h2> */}
 
@@ -52,11 +52,11 @@ export default function Login() {
                     value={password}
                   />
                 </div>
-                <div class="d-grid gap-2">
+                <div className="d-grid gap-2">
                   <button className="btn btn-primary"><h5>Log In</h5></button>
                 </div>
                 <hr />
-                <div class="d-grid gap-2 col-6 mx-auto">
+                <div className="d-grid gap-2 col-6 mx-auto">
                   <Link to="/signup" className="btn btn-dark"><h6>Create New Account</h6></Link>
                 </div>
                 

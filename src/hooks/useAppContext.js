@@ -7,8 +7,8 @@ export const useAppContext = () => {
   const context = useContext(AppContext)
 
   if (!context) {
-    throw Error('useAthContext must be inside an AppContextProvider')
+    throw Error('useAppContext must be inside an AppContextProvider')
   }
 
   return context
-}
+} 

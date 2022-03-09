@@ -1,29 +1,30 @@
 import { createContext, useEffect, useReducer } from 'react'
-import { projectAuth } from '../../firebase/config'
+import { projectAuth } from '../firebase/config'
+
 
 export const AppContext = createContext()
 
-export const appReducer = (state, action) => {
-
+export const authReducer = (state, action) => {
+  switch (action.type) {
+    case 'LOGIN':
+      return { ...state, user: action.payload }
+  
+    default:
+      return state
+  }
 }
 
 
 export const AppContextProvider = ({ children }) => {
 
-  const [state, dispatch] = useReducer(appReducer, {
-    user: null,
-    authIsReady: false
+  const [authState, authDispatch] = useReducer(authReducer, {
+    user: null
   })
+  console.log('AppContext auth state:', authState)
 
-  // useEffect(() => {
-  //   const unsub = projectAuth.onAuthStateChanged((user) => {
-  //     dispatch()
-  //     unsub()
-  //   })
-  // }, [])
 
   return (
-    <AppContext.Provider value={{ ...state, dispatch }}>
+    <AppContext.Provider value={{ ...authState, authDispatch }}>
       { children }
     </AppContext.Provider>
   )

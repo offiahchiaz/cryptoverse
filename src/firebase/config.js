@@ -3,12 +3,12 @@ import 'firebase/firestore'
 import 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBX8dIyHFI8v6efSfRMdfKjT87zizD1qoE",
-  authDomain: "cryptoverse-c54a9.firebaseapp.com",
-  projectId: "cryptoverse-c54a9",
-  storageBucket: "cryptoverse-c54a9.appspot.com",
-  messagingSenderId: "191874310466",
-  appId: "1:191874310466:web:d67cc7d6f6f0c9174168db"
+  apiKey: "AIzaSyBc9MwEscaGtHg5L_cubsdEc6hkMqSJy_k",
+  authDomain: "cryptoverse-ecd74.firebaseapp.com",
+  projectId: "cryptoverse-ecd74",
+  storageBucket: "cryptoverse-ecd74.appspot.com",
+  messagingSenderId: "123089436295",
+  appId: "1:123089436295:web:0c30ab04e881b9aee68222"
 };
 
 // init firebase
@@ -18,4 +18,7 @@ firebase.initializeApp(firebaseConfig)
 const projectFirestore = firebase.firestore()
 const projectAuth = firebase.auth()
 
-export { projectFirestore, projectAuth }
+// timestamp
+const timestamp = firebase.firestore.Timestamp
+
+export { projectFirestore, projectAuth, timestamp }

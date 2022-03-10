@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
-
+import { useLogout } from '../hooks/useLogout'
 
 export default function Navbar() {
+  const { logout } = useLogout()
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
@@ -136,7 +138,7 @@ export default function Navbar() {
                     <li><Link className="dropdown-item" to="#">Portfolio&nbsp;<span className="badge bg-danger">New</span></Link></li>
                     <li><Link className="dropdown-item" to="#">Price Alert</Link></li>
                     <li><Link className="dropdown-item" to="#">Login and Security</Link></li>
-                    <li><Link className="dropdown-item" to="#">Sign Out</Link></li>
+                    <li><button className="dropdown-item btn" type="button" to="#" onClick={logout}>Sign Out</button></li>
                   </ul>
                 </li>
               </ul>

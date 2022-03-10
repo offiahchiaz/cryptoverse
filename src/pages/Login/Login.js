@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 
+import { useLogin } from '../../hooks/useLogin'
+
 
 import styles from './Login.module.css'
 
@@ -10,10 +12,11 @@ export default function Login() {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const { login, error, isPending } = useLogin()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(email, password)
+    login(email, password)
   }
 
   return (
@@ -53,13 +56,14 @@ export default function Login() {
                   />
                 </div>
                 <div className="d-grid gap-2">
-                  <button className="btn btn-primary"><h5>Log In</h5></button>
+                  { !isPending && <button className="btn btn-primary"><h5>Log In</h5></button> }
+                  {isPending && <button className="btn btn-primary" disabled><h5>loading...</h5></button>}
                 </div>
                 <hr />
                 <div className="d-grid gap-2 col-6 mx-auto">
                   <Link to="/signup" className="btn btn-dark"><h6>Create New Account</h6></Link>
                 </div>
-                
+                { error && <p className='text-center text-danger mt-4'>{error}</p> }
               </form>
             </div>
           </div>

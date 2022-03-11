@@ -9,14 +9,7 @@ import styles from './Home.module.css'
 
 export default function Home() {
   const [summary, setSummary] = useState(false)
-
-  const handleSummary = () => {
-    if (summary) {
-      return setSummary(true)
-    } else {
-      return setSummary(false)
-    }
-  }
+  const [stat, setStat] = useState(true)
 
   console.log(summary)
 
@@ -50,7 +43,12 @@ export default function Home() {
       <div className="row">
         <div className="col-md-12 mt-3 d-flex flex-row">
           <h4 className="me-3">Cryptocurrency Prices by Market Cap</h4>
-          <div className=""><img src={toggle} alt="show stats toggle icon" /></div>
+          <div className={`togglemode ${styles.filtergreen}`}>
+            <img 
+              src={toggle} 
+              onClick={() => setStat(!stat)} 
+              alt="show stats toggle icon" style={{ cursor: 'pointer' }} />
+          </div>
           <h6 className="px-1 mt-2 fw-bold">Show Stats</h6> 
         </div>
       </div>
@@ -77,6 +75,27 @@ export default function Home() {
         }
         
       </div>
+      {stat && 
+        <div className="row mt-2">
+          <div className={`col-md-3 ${styles.stat} ${styles.statDanger}`}>
+            <h4>$1,844,902,651,655</h4>
+            <small>Market Capitalization</small>
+          </div>
+          <div className={`col-md-3 ${styles.stat} ${styles.statDanger}`}>
+            <h4>$87,264,337,137</h4>
+            <small>24h Trading Volume</small>
+          </div>
+          <div className={`col-md-3 ${styles.stat} ${styles.statDanger}`}>
+            <h4>40.67%</h4>
+            <small>Bitcoin Market Cap Dominance</small>
+          </div>
+          <div className={`col-md-3 ${styles.stat} ${styles.statDanger}`}>
+            <h4>13076</h4>
+            <small># of Coins</small>
+          </div>
+        </div>
+      }
+      
     </div>
   )
 }

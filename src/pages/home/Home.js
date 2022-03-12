@@ -1,7 +1,10 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { useFetch } from "../../hooks/useFetch"
+import CoinList from "../../components/CoinList"
+//import Pagination from "../../components/Pagination"
 
-import statToggle from '../../assets/toggle_button.svg'
+//import statToggle from '../../assets/toggle_button.svg'
 import toggle from '../../assets/toggle.svg'
 
 import styles from './Home.module.css'
@@ -10,6 +13,8 @@ import styles from './Home.module.css'
 export default function Home() {
   const [summary, setSummary] = useState(false)
   const [stat, setStat] = useState(true)
+  //const [url, setUrl] = useState('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d')
+  //const { data: coins } = useFetch(url)
 
   console.log(summary)
 
@@ -95,7 +100,8 @@ export default function Home() {
           </div>
         </div>
       }
-      
+
+      <CoinList />
     </div>
   )
 }

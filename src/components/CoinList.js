@@ -9,15 +9,16 @@ import styles from './CoinList.module.css'
 
 export default function CoinList() {
   const [url, setUrl] = useState('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d')
-  const { data: coins, isPending } = useFetch(url)
+  const { data: coins, isPending, error } = useFetch(url)
   return (
-    <div className="row">
+  <div className="row">
       { isPending && 
-          (<div class="col-md-12 d-flex align-items-center mt-5">
-            <strong>Loading...</strong>
-            <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
-          </div>)
+        (<div className="col-md-12 d-flex align-items-center mt-5">
+          <strong>Loading...</strong>
+          <div className="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+        </div>)
       }
+      {error && <div>{error}</div> }
       <table className="table table-hover">
         <thead>
           <tr>
@@ -34,8 +35,11 @@ export default function CoinList() {
           </tr>
         </thead>
         <tbody>
+         
+
+          
           {coins && coins.map((coin) => (
-            <tr>
+            <tr key={coin.id}>
               <td>
                 <img 
                   src={star}  

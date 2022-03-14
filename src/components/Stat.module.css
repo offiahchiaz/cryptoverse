@@ -1,0 +1,26 @@
+.homecolor {
+  color: #1877f2;
+}
+.link {
+  color: #212529;
+}
+.link:hover {
+  color: #212529;
+}
+.togglemode img {
+  cursor: pointer;
+}
+.filtergreen {
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(88%) contrast(119%);
+}
+.stat {
+  /* padding: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem; */
+  border: 1px solid #e9ecef;
+  border-left-width: 0.25rem;
+  border-radius: 0.25rem;
+}
+.statDanger {
+  border-left-color: #d9534f;
+}

@@ -58,7 +58,7 @@ export default function CoinList() {
                     alt="show coin icon" 
                     style={{ width: '20px', height: '20px', marginRight: '10px' }} 
                   />
-                  <small className='fw-bold text-wrap'><Link to={`/coins/${coin.id}`}>{coin.name}</Link></small>
+                  <small className="fw-bold text-wrap"><Link className={styles.coinLink} to={`/coins/${coin.id}`}>{coin.name}</Link></small>
                 </p>
                 <p  className='text-uppercase' style={{ width: '45px', float: 'left' }}>
                   {coin.symbol} 

@@ -11,3 +11,12 @@
   border-radius: 4px;
   background-color: rgba(179,207,145,.2);
 }
+
+.coinLink {
+  cursor: pointer;
+  color: #212529;
+  text-decoration: none;
+}
+.coinLink:hover {
+  color: #212529;
+}

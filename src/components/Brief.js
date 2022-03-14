@@ -2,7 +2,7 @@ import styles from './Brief.module.css'
 
 export default function Brief() {
   return (
-    <div className={`row ${styles.mainDiv}`}>
+    <div className={`container ${styles.mainDiv}`}>
      <h4 className={styles.h4Div}> What is cryptocurrency market cap?</h4>
       <small>
         Market cap is one of the most popular metrics in the industry that is used to gauge the value of an asset. 

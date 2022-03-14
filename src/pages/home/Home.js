@@ -2,8 +2,6 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { useFetch } from "../../hooks/useFetch"
 import CoinList from "../../components/CoinList"
-import Brief from "../../components/Brief"
-import Disclaimer from "../../components/Disclaimer"
 //import Pagination from "../../components/Pagination"
 
 //import statToggle from '../../assets/toggle_button.svg'
@@ -105,14 +103,7 @@ export default function Home() {
 
       {/* List of coins */}
       <CoinList />
-
-
-      {/* Brief sectrion */}
-      <Brief />
-
-      {/* Disclaimer section */}
-      <Disclaimer />
-      
+    
     </div>
   )
 }

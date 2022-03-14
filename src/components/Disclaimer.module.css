@@ -1,10 +1,11 @@
 .rowBg {
   background: #3f3f3f;
   color: #fff;
-  padding: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;;
 }
 .disclaimerImg {
-  filter: brightness(0.5) sepia(1) hue-rotate(-70deg) saturate(10);
+  /* filter: brightness(0.5) sepia(1) hue-rotate(-70deg) saturate(10); */
   /* fill: #dc3545; */
   width: 20px;
 }

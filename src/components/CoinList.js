@@ -1,10 +1,12 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import { useFetch } from "../hooks/useFetch"
 import NumberWithCommas from "../Helpers/NumberWithCommas"
 
 import star from '../assets/star.svg' 
 
 import styles from './CoinList.module.css'
+
 
 
 export default function CoinList() {
@@ -24,7 +26,8 @@ export default function CoinList() {
           <tr>
             <th scope="col">#</th>
             <th scope="col">Coin</th>
-            {/* <th scope="col"></th> */}
+            <th scope="col"></th>
+            <th scope="col"></th>
             <th scope="col">Price</th>
             <th scope="col">1h</th>
             <th scope="col">24h</th>
@@ -48,26 +51,24 @@ export default function CoinList() {
                 />
                  <small>{coin.market_cap_rank}</small>
               </td>
-              <td>
-                <img 
-                  src={coin.image} 
-                  alt="show coin icon" 
-                  style={{ width: '20px', height: '20px', marginRight: '10px' }} 
-                />
-                <small className='fw-bold text-wrap' style={{ width: '1px' }}>{coin.name}</small>
-                <small 
-                  className='text-uppercase'  
-                  style={{ maxWidth: '50px' }} >{coin.symbol}</small> 
-                <small className={styles.buy}>Buy</small>
+              <td colSpan="3">
+                <p style={{ width: '120px', float: 'left' }}>
+                  <img 
+                    src={coin.image} 
+                    alt="show coin icon" 
+                    style={{ width: '20px', height: '20px', marginRight: '10px' }} 
+                  />
+                  <small className='fw-bold text-wrap'><Link to={`/coins/${coin.id}`}>{coin.name}</Link></small>
+                </p>
+                <p  className='text-uppercase' style={{ width: '45px', float: 'left' }}>
+                  {coin.symbol} 
+                </p>
+                <p className={styles.buy}>Buy</p>
+                
               </td>
-              {/* <td>
-                <small 
-                  className='text-uppercase'  
-                  style={{ maxWidth: '50px' }} >{coin.symbol}</small> 
-                <small className={styles.buy}>Buy</small>
-              </td> */}
+              
               <td>
-              <small>${NumberWithCommas(coin.current_price)}</small>
+                <small>${NumberWithCommas(coin.current_price)}</small>
               </td>
               <td>
                 <small 

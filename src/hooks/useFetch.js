@@ -7,9 +7,12 @@ export const useFetch = (url) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsPending(true)
+
       const res = await fetch(url)
       const json = await res.json()
 
+      setIsPending(false)
       setData(json)
     }
 

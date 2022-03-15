@@ -78,22 +78,20 @@ export default function Stat() {
           {console.log('This is data', data?.data?.markets)}
           <div className={`col-md-3 card ${styles.stat}`} style={{  borderLeftColor: `${data?.data?.market_cap_change_percentage_24h_usd > 0 ? '#8dc647' : '#d9534f' }` }}>
             <div className="card-body">
-              <h4>$77,096,602,614</h4>
+              <h5>$77,096,602,614</h5>
               <small>24h Trading Volume</small>
             </div>
           </div>
-          <div className="col-md-3 card">
+          <div className={`col-md-3 card ${styles.stat}`} style={{  borderLeftColor: '#e5e7eb' }}>
             <div className="card-body">
-              <h4>$1,844,902,651,655</h4>
-              <small>Market Capitalization</small>
-              {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
+              <h5>{ data?.data?.market_cap_percentage?.btc.toFixed(2) }%</h5>
+              <small>Bitcoin Market Cap Dominance</small>
             </div>
           </div>
-          <div className="col-md-3 card">
+          <div className={`col-md-3 card ${styles.stat}`} style={{  borderLeftColor: '#e5e7eb' }}>
             <div className="card-body">
-              <h4>$1,844,902,651,655</h4>
-              <small>Market Capitalization</small>
-              {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
+              <h4>{ data?.data?.active_cryptocurrencies }</h4>
+              <small># of Coins</small>
             </div>
           </div>
           {/* <div className={`col-md-3 ${styles.stat} ${styles.statDanger}`}>

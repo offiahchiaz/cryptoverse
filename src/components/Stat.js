@@ -38,8 +38,12 @@ export default function Stat() {
 
       <div className="row mt-1">
         <div className="col-md-12">
-          <small>The global cryptocurrency market cap today is $1.91 Trillion, a &nbsp;
-            <span>variable</span> change in the last 24 hours.&nbsp; 
+          <small>The global cryptocurrency market cap today is $1.91 Trillion, a&nbsp;
+            <span style={{ color: `${data?.data?.market_cap_change_percentage_24h_usd > 0 ? '#8dc647' : '#d9534f' }`}}>
+              { data?.data?.market_cap_change_percentage_24h_usd.toFixed(1) }%
+              { data?.data?.market_cap_change_percentage_24h_usd > 0 ? <FontAwesomeIcon icon={faArrowTurnUp} /> : <FontAwesomeIcon icon={faArrowTurnDown} /> }
+            </span>
+            &nbsp;change in the last 24 hours.&nbsp; 
             { !summary && <Link className={styles.link} onClick={() => setSummary(!summary)} to="">Read more</Link> }
             {summary && <Link className={styles.link} onClick={() => setSummary(!summary)} to="">Hide</Link> }
           </small>
@@ -94,22 +98,6 @@ export default function Stat() {
               <small># of Coins</small>
             </div>
           </div>
-          {/* <div className={`col-md-3 ${styles.stat} ${styles.statDanger}`}>
-            <h4>$1,844,902,651,655</h4>style="width: 18rem;"
-            <small>Market Capitalization</small>
-          </div>
-          <div className={`col-md-3 ${styles.stat} ${styles.statDanger}`}>
-            <h4>$87,264,337,137</h4>
-            <small>24h Trading Volume</small>
-          </div>
-          <div className={`col-md-3 ${styles.stat} ${styles.statDanger}`}>
-            <h4>40.67%</h4>
-            <small>Bitcoin Market Cap Dominance</small>
-          </div>
-          <div className={`col-md-3 ${styles.stat} ${styles.statDanger}`}>
-            <h4>13076</h4>
-            <small># of Coins</small>
-          </div> */}
         </div>
       }
     </>

@@ -13,7 +13,7 @@ export default function CoinList() {
   const [url, setUrl] = useState('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d')
   const { data: coins, isPending, error } = useFetch(url)
   return (
-  <div className="row">
+  <div className="row mt-5">
       { isPending && 
         (<div className="col-md-12 d-flex align-items-center mt-5">
           <strong>Loading...</strong>

@@ -63,7 +63,7 @@ export default function Stat() {
 
       { stat && 
         <div className="row mt-2">
-          <div className={`col-md-3 card ${styles.stat}`} style={{  borderLeftColor: `${data?.data?.market_cap_change_percentage_24h_usd > 0 ? '#8dc647' : '#d9534f' }` }}>
+          <div className={`col-md-3 card ${styles.stat}`} style={{ paddingRight: '5px', borderLeftColor: `${data?.data?.market_cap_change_percentage_24h_usd > 0 ? '#8dc647' : '#d9534f' }` }}>
             <div className="card-body">
               <div className="d-flex">
                 <h5>$1,844,902,651,655</h5>
@@ -72,16 +72,14 @@ export default function Stat() {
                   { data?.data?.market_cap_change_percentage_24h_usd > 0 ? <FontAwesomeIcon icon={faArrowTurnUp} /> : <FontAwesomeIcon icon={faArrowTurnDown} /> }
                 </span>
               </div>
-             
               <small>Market Capitalization</small>
             </div>
           </div>
           {console.log('This is data', data?.data?.markets)}
-          <div className="col-md-3 card">
+          <div className={`col-md-3 card ${styles.stat}`} style={{  borderLeftColor: `${data?.data?.market_cap_change_percentage_24h_usd > 0 ? '#8dc647' : '#d9534f' }` }}>
             <div className="card-body">
-              <h4>$1,844,902,651,655</h4>
-              <small>Market Capitalization</small>
-              {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
+              <h4>$77,096,602,614</h4>
+              <small>24h Trading Volume</small>
             </div>
           </div>
           <div className="col-md-3 card">

@@ -7,3 +7,11 @@
 .coinLink:hover {
   color: #8dc647;
 }
+.feedbackLink {
+  cursor: pointer;
+  color: #4a4a4a;
+  text-decoration: none;
+}
+.feedbackLink:hover {
+  color: #8dc647;
+}

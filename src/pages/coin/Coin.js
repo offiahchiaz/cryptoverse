@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faAngleRight } from "@fortawesome/free-solid-svg-icons"
+import { faAngleRight, faMessage } from "@fortawesome/free-solid-svg-icons"
 import { useFetch } from "../../hooks/useFetch"
 
 import styles from './Coin.module.css'
@@ -25,8 +25,14 @@ export default function Coin() {
             <Link className={styles.coinLink} to="/">Coin</Link>
             <FontAwesomeIcon style={{ paddingRight: '5px', paddingLeft: '5px' }} icon={faAngleRight} />
             { coin?.name }
-            Price
+            &nbsp;Price
           </p>
+          <small className={`ms-auto`}>
+            <Link className={styles.feedbackLink} target="_blank" to="https://bit.ly/3MSiEGH">
+              <FontAwesomeIcon icon={faMessage} />
+              &nbsp;Give Feedback
+            </Link>
+          </small>
         </div>
       </div>
     </div>

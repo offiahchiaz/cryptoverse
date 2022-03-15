@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/signup/Signup";
 import Home from "./pages/home/Home";
+import Coin from "./pages/coin/Coin";
 import Brief from "./components/Brief";
 import Disclaimer from "./components/Disclaimer";
 import Footer from "./components/Footer";
@@ -30,6 +31,9 @@ function App() {
               <Route path="/signup">
                 {user && <Redirect to="/" />}
                 {!user && <Signup />}
+              </Route>
+              <Route path="/coins/:id">
+                <Coin />
               </Route>
           </Switch>
           {/* Brief sectrion */}

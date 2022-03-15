@@ -1,0 +1,9 @@
+.coinLink {
+  cursor: pointer;
+  color: #8dc647;
+  text-decoration: none;
+  font-weight: bold;
+}
+.coinLink:hover {
+  color: #8dc647;
+}

@@ -15,3 +15,13 @@
 .feedbackLink:hover {
   color: #8dc647;
 }
+.secBtn {
+  color: #6c757d;
+  /* border-color: #e5e7eb; */
+  border-radius: .375rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  align-items: center;
+  margin-right: 4px;
+  background-color: transparent;
+}

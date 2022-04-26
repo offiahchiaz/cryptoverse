@@ -67,37 +67,44 @@ export default function Stat() {
 
       { stat && 
         <div className="row mt-2">
-          <div className={`col-md-3 card ${styles.stat}`} style={{ paddingRight: '5px', borderLeftColor: `${data?.data?.market_cap_change_percentage_24h_usd > 0 ? '#8dc647' : '#d9534f' }` }}>
-            <div className="card-body">
-              <div className="d-flex">
-                <h5>$1,844,902,651,655</h5>
-                <span style={{ marginLeft: '10px', color: `${data?.data?.market_cap_change_percentage_24h_usd > 0 ? '#8dc647' : '#d9534f' }`}}>
-                  { data?.data?.market_cap_change_percentage_24h_usd.toFixed(1) }%
-                  { data?.data?.market_cap_change_percentage_24h_usd > 0 ? <FontAwesomeIcon icon={faArrowTurnUp} /> : <FontAwesomeIcon icon={faArrowTurnDown} /> }
-                </span>
+          { data && (<>
+          {/* {console.log(data)} */}
+            <div className={`col-md-3 card ${styles.stat}`} style={{ paddingRight: '5px', borderLeftColor: `${data.data.market_cap_change_percentage_24h_usd > 0 ? '#8dc647' : '#d9534f' }` }}>
+              <div className="card-body">
+                <div className="d-flex">
+                  <h5>$1,844,902,651,655</h5>
+                  <span style={{ marginLeft: '10px', color: `${data.data.market_cap_change_percentage_24h_usd > 0 ? '#8dc647' : '#d9534f' }`}}>
+                    { data.data.market_cap_change_percentage_24h_usd.toFixed(1) }%
+                    { data.data.market_cap_change_percentage_24h_usd > 0 ? <FontAwesomeIcon icon={faArrowTurnUp} /> : <FontAwesomeIcon icon={faArrowTurnDown} /> }
+                  </span>
+                </div>
+                <small>Market Capitalization</small>
               </div>
-              <small>Market Capitalization</small>
             </div>
-          </div>
-          {console.log('This is data', data?.data?.markets)}
-          <div className={`col-md-3 card ${styles.stat}`} style={{  borderLeftColor: `${data?.data?.market_cap_change_percentage_24h_usd > 0 ? '#8dc647' : '#d9534f' }` }}>
-            <div className="card-body">
-              <h5>$77,096,602,614</h5>
-              <small>24h Trading Volume</small>
+            {/* {console.log('This is data', data.data.markets)} */}
+
+            <div className={`col-md-3 card ${styles.stat}`} style={{  borderLeftColor: `${data.data.market_cap_change_percentage_24h_usd > 0 ? '#8dc647' : '#d9534f' }` }}>
+              <div className="card-body">
+                <h5>$77,096,602,614</h5>
+                <small>24h Trading Volume</small>
+              </div>
             </div>
-          </div>
-          <div className={`col-md-3 card ${styles.stat}`} style={{  borderLeftColor: '#e5e7eb' }}>
-            <div className="card-body">
-              <h5>{ data?.data?.market_cap_percentage?.btc.toFixed(2) }%</h5>
-              <small>Bitcoin Market Cap Dominance</small>
+
+            <div className={`col-md-3 card ${styles.stat}`} style={{  borderLeftColor: '#e5e7eb' }}>
+              <div className="card-body">
+                <h5>{ data.data.market_cap_percentage?.btc.toFixed(2) }%</h5>
+                <small>Bitcoin Market Cap Dominance</small>
+              </div>
             </div>
-          </div>
-          <div className={`col-md-3 card ${styles.stat}`} style={{  borderLeftColor: '#e5e7eb' }}>
-            <div className="card-body">
-              <h4>{ data?.data?.active_cryptocurrencies }</h4>
-              <small># of Coins</small>
+            
+            <div className={`col-md-3 card ${styles.stat}`} style={{  borderLeftColor: '#e5e7eb' }}>
+              <div className="card-body">
+                <h4>{ data.data.active_cryptocurrencies }</h4>
+                <small># of Coins</small>
+              </div>
             </div>
-          </div>
+          </>) }
+          
         </div>
       }
     </>

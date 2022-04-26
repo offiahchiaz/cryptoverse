@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 import CoinList from "../../components/CoinList"
 import Stat from "../../components/Stat"
 
+import Pagination from "../../components/Pagination"
+
 //import statToggle from '../../assets/toggle_button.svg'
 //import toggle from '../../assets/toggle.svg'
 
@@ -50,6 +52,7 @@ export default function Home() {
 
       {/* List of coins */}
       <CoinList />
+      {/* <Pagination itemsPerPage={100} /> */}
     
     </div>
   )

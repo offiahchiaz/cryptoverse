@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { Sparklines, SparklinesLine } from 'react-sparklines'
 import { useFetch } from "../hooks/useFetch"
 import NumberWithCommas from "../Helpers/NumberWithCommas"
 
@@ -10,8 +11,11 @@ import styles from './CoinList.module.css'
 
 
 export default function CoinList() {
-  const [url, setUrl] = useState('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d')
+  const [url, setUrl] = useState(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d`)
+  // https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d
+  // https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d
   const { data: coins, isPending, error } = useFetch(url)
+
   return (
   <div className="row mt-5">
       { isPending && 
@@ -20,7 +24,9 @@ export default function CoinList() {
           <div className="spinner-border ms-auto" role="status" aria-hidden="true"></div>
         </div>)
       }
+
       {error && <div>{error}</div> }
+      
       <table className="table table-hover">
         <thead>
           <tr>
@@ -94,7 +100,11 @@ export default function CoinList() {
               <td>
                 <small>${NumberWithCommas(coin.market_cap)}</small>
               </td>
-              <td>Hello World</td>
+              <td>
+                <Sparklines data={coin.sparkline_in_7d.price} height={80}>
+                <SparklinesLine style={{ strokeWidth: 3, fill: "none" }} color={`${ coin.sparkline_in_7d.price[0] < coin.sparkline_in_7d.price[coin.sparkline_in_7d.price.length - 1] ? 'green' : 'red' }`} />
+                </Sparklines>
+              </td>
             </tr>
           ))}
         </tbody>
